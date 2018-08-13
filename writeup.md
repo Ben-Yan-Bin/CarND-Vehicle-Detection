@@ -78,10 +78,7 @@ Here's a [link to my video result](./test1_ouput.mp4)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
-
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
-
+I recorded the positions of positive detections in previous and current 12 frames. Stored these detections in a list, and use cv2.groupRectangles() to get similar detections for 8 frames, and eps=0.1 as the difference among the detections, which makes the model quite stable for the detected cars, so that to filter out the false positives.
 
 ---
 
@@ -91,4 +88,4 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 One issue in the project is to setup good shape of HOG parameters and slide window sizes. And how to balance the performance and accurary is also a challenge. Some experiments are needed to find proper parameters.   
 Second issue is how to deal with false positives, in which I referred to some resources from the internet, and also the usages of cv2 functions, like cv2 contour, boundingRect, groupRectangles.   
-Another issue is the performance of the pipeline, it takes around 0.7 sec for one frame, which should be improved by better slide window design, or some other complete Deep Learning E2E solution like YOLO.
+Another issue is the performance of the pipeline, it takes around 0.7 sec for one frame, which should be improved by better slide window design (bigger windows near the bottom area), or some other complete Deep Learning E2E solution like YOLO.
