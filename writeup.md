@@ -33,7 +33,7 @@ The goals / steps of this project are the following:
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the cell 2 to 7. I use cv2.HOGDescriptor to get my hog features, with same parameters shown in the course, and it is working fine. I also used "YUV" as my color space. When I use "RGB" as color space, it will cause more false positives on the advanced lane line finding videos (the lane lines are painted green)
+The code for this step is contained in the cell 2 to 7. In cell 2, I defined a function to help extract hog features from list of images, cv2.HOGDescriptor is used. to get hog features. In cell 3, I read all images of cars and not cars. In cell 5, the hog features of all the data was extracted, and consumed 27 seconds. 
 
 Below is an example car image, with the raw features and scaled features.
 
@@ -42,19 +42,19 @@ Below is an example car image, with the raw features and scaled features.
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and...
+I used the same parameters shown in the course, and it is working fine. I also use "YUV" as my color space. When I use "RGB" as color space, it will cause more false positives on the advanced lane line finding videos (the lane lines are painted green).
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using...
+I tried SVM and Mutiple-Layer-Perceptron, and found MLP works better.
 
 ### Sliding Window Search
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+I defined the slide window function in cell 10, start with the window size 64, since from the image, I think size 64 is a reasonable size of cars that are far away enough, also I use 0.5 as the overlap which is a balance of performance and accuracy. 
 
-![alt text][image3]
+![alt text][image2]
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
