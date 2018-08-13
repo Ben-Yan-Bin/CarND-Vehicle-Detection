@@ -46,7 +46,7 @@ I used the same parameters shown in the course, and it is working fine. I also u
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I tried SVM and Mutiple-Layer-Perceptron, and found MLP works better.
+I tried SVM and Mutiple-Layer-Perceptron, and found MLP works better. (MLP=0.99 acc, and SVM=0.95)
 
 ### Sliding Window Search
 
@@ -58,9 +58,16 @@ I defined the slide window function in cell 10, start with the window size 64, s
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+Here are some example of the test images and the contours of the detection, and bounding boxes of the detections:   
+I set Y start = 400, and Y stop = 700 to focus on the lower part of the image to have better performance.
 
+![alt text][image3]
 ![alt text][image4]
+![alt text][image5]
+![alt text][image6]
+![alt text][image7]
+![alt text][image8]
+
 ---
 
 ### Video Implementation
