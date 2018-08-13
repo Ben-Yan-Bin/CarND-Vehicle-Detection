@@ -87,5 +87,5 @@ I recorded the positions of positive detections in previous and current 12 frame
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 One issue in the project is to setup good shape of HOG parameters and slide window sizes. And how to balance the performance and accurary is also a challenge. Some experiments are needed to find proper parameters.   
-Second issue is how to deal with false positives, in which I referred to some resources from the internet, and also the usages of cv2 functions, like cv2 contour, boundingRect, groupRectangles.   
+Second issue is how to deal with false positives, in which I referred to some resources from the github (https://github.com/MyCodeBits/Udacity-CarND-Vehicle-Detection-Project), and also the usages of cv2 functions, like cv2 contour, boundingRect, groupRectangles.   
 Another issue is the performance of the pipeline, it takes around 0.7 sec for one frame, which should be improved by better slide window design (bigger windows near the bottom area), or some other complete Deep Learning E2E solution like YOLO.
